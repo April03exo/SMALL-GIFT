@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise</title>
+
+<!-- Cute + Readable Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffd6e8,#ffeef6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Quicksand',sans-serif;
+}
+
+/* Card Animation */
+.card{
+  background:#fff6fa;
+  border-radius:20px;
+  padding:35px 45px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(255,105,180,0.2);
+  animation:popIn 0.8s ease;
+  max-width:90%;
+}
+
+@keyframes popIn{
+  from{
+    transform:scale(0.7);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+/* Birthday Title with Cute Animation */
+h1{
+  font-family:'Fredoka One',cursive;
+  color:#ff4f9a;
+  font-size:2.5em;
+  display:inline-block;
+  animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* General Paragraphs outside modal */
+p{
+  color:#a9446a;
+  font-size:1.1em;
+  white-space: pre-line; 
+}
+
+/* Surprise Modal Animation */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(255,192,203,0.6);
+  justify-content:center;
+  align-items:center;
+  overflow:auto;
+}
+
+.modalContent{
+  background:#fff6fa;
+  padding:20px 20px; /* slightly smaller padding */
+  border-radius:18px;
+  text-align:center;
+  animation:fadeIn 0.5s ease;
+  width:auto;
+  max-width:600px;
+  height:auto;
+  max-height:90%;
+  overflow-y:auto;
+}
+
+/* Adjust spacing only inside modalContent paragraphs */
+.modalContent p{
+  line-height:1.3em; /* smaller line spacing */
+  margin:6px 0; /* smaller paragraph spacing */
+}
+
+@keyframes fadeIn{
+  from{
+    transform:translateY(20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
+/* Make image bigger */
+.modalContent img{
+  width:400px;
+  max-width:90%;
+  border-radius:12px;
+  margin:10px 0; /* slightly smaller margin */
+}
+
+/* Buttons */
+button{
+  margin-top:15px; /* slightly smaller */
+  padding:10px 22px;
+  background:#ff69b4;
+  border:none;
+  border-radius:25px;
+  color:white;
+  font-family:'Quicksand',sans-serif;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#ff4f9a;
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 480px) {
+  .card {
+    padding:20px 25px;
+  }
+  h1 {
+    font-size:1.8em;
+  }
+  .modalContent img {
+    width:180px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Birthday, <span>Ana Mhireya!</span> 🎂</h1>
+  <p>Wishing you a day filled with smiles and sweet moments.</p>
+  <button onclick="showSurprise()">Open Your Gift</button>
+</div>
+
+<!-- SURPRISE CARD IS 100% UNTOUCHED -->
+<div id="surpriseBox" class="modal">
+  <div class="modalContent">
+    <h2>Surprise to our twinnie!!!</h2>
+    <img src="photo.jpg" alt="Birthday Photo">
+    <p>
+      First of all, Happy 21st Birthday to you, twin! <br> Wishing you all the best and hopefully choose yourself first before others.
+    </p>
+    <p>
+      I pray that you win in life and achieve all your dreams! <br> Thank you for always checking on me.
+    </p>
+    <p>
+      I hope this reminds you na I am always here for you, wag i-keep sa sarili ah. <br> We know you’re matapang, pero minsan pwede din mapagod, madam. 
+    </p>
+    <p>
+      I hope you are surrounded by people who will really appreciate you and make an effort for you! <br> Always keep in mind, prioritize your own peace rather than listening to their opinion.
+    </p>
+    <p>
+      Super lucky to have you, Ana! Thank you for sticking with me kahit madrama ako. <br> I love you forever. Enjoy your special day, hope to see you today! Padayon to our future RMT!
+    </p>
+    <button onclick="closeSurprise()">Close</button>
+  </div>
+</div>
+
+<script>
+function showSurprise(){
+  document.getElementById("surpriseBox").style.display="flex";
+}
+
+function closeSurprise(){
+  document.getElementById("surpriseBox").style.display="none";
+}
+</script>
+
+</body>
+</html>

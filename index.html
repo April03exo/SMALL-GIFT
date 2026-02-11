@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Surprise</title>
 
 <!-- Cute + Readable Fonts -->
@@ -9,6 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
 <style>
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   min-height:100vh;
@@ -17,22 +22,24 @@ body{
   justify-content:center;
   align-items:center;
   font-family:'Quicksand',sans-serif;
+  padding:15px;
 }
 
-/* Card Animation */
+/* Card */
 .card{
   background:#fff6fa;
   border-radius:20px;
-  padding:35px 45px;
+  padding:clamp(20px,5vw,40px);
   text-align:center;
   box-shadow:0 8px 20px rgba(255,105,180,0.2);
   animation:popIn 0.8s ease;
-  max-width:90%;
+  width:100%;
+  max-width:500px;
 }
 
 @keyframes popIn{
   from{
-    transform:scale(0.7);
+    transform:scale(0.8);
     opacity:0;
   }
   to{
@@ -41,13 +48,12 @@ body{
   }
 }
 
-/* Birthday Title with Cute Animation */
 h1{
   font-family:'Fredoka One',cursive;
   color:#ff4f9a;
-  font-size:2.5em;
-  display:inline-block;
+  font-size:clamp(1.6rem,5vw,2.5rem);
   animation:bounce 1.5s infinite;
+  margin-bottom:10px;
 }
 
 @keyframes bounce{
@@ -55,14 +61,13 @@ h1{
   50% { transform: translateY(-8px); }
 }
 
-/* General Paragraphs outside modal */
 p{
   color:#a9446a;
-  font-size:1.1em;
-  white-space: pre-line; 
+  font-size:clamp(0.95rem,3.5vw,1.1rem);
+  margin:8px 0;
 }
 
-/* Surprise Modal Animation */
+/* Modal */
 .modal{
   display:none;
   position:fixed;
@@ -70,26 +75,25 @@ p{
   background:rgba(255,192,203,0.6);
   justify-content:center;
   align-items:center;
+  padding:15px;
   overflow:auto;
 }
 
 .modalContent{
   background:#fff6fa;
-  padding:20px 20px; /* slightly smaller padding */
+  padding:clamp(15px,4vw,25px);
   border-radius:18px;
   text-align:center;
   animation:fadeIn 0.5s ease;
-  width:auto;
+  width:100%;
   max-width:600px;
-  height:auto;
-  max-height:90%;
+  max-height:95vh;
   overflow-y:auto;
 }
 
-/* Adjust spacing only inside modalContent paragraphs */
 .modalContent p{
-  line-height:1.3em; /* smaller line spacing */
-  margin:6px 0; /* smaller paragraph spacing */
+  line-height:1.4em;
+  margin:6px 0;
 }
 
 @keyframes fadeIn{
@@ -103,17 +107,16 @@ p{
   }
 }
 
-/* Make image bigger */
 .modalContent img{
-  width:400px;
-  max-width:90%;
+  width:100%;
+  max-width:400px;
+  height:auto;
   border-radius:12px;
-  margin:10px 0; /* slightly smaller margin */
+  margin:10px 0;
 }
 
-/* Buttons */
 button{
-  margin-top:15px; /* slightly smaller */
+  margin-top:15px;
   padding:10px 22px;
   background:#ff69b4;
   border:none;
@@ -123,23 +126,11 @@ button{
   font-weight:600;
   cursor:pointer;
   transition:0.3s;
+  font-size:clamp(0.9rem,3vw,1rem);
 }
 
 button:hover{
   background:#ff4f9a;
-}
-
-/* Responsive tweaks for mobile */
-@media (max-width: 480px) {
-  .card {
-    padding:20px 25px;
-  }
-  h1 {
-    font-size:1.8em;
-  }
-  .modalContent img {
-    width:180px;
-  }
 }
 </style>
 </head>
